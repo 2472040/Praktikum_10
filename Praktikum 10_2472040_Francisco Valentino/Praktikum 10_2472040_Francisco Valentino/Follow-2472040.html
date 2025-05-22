@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Follow-2472040</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        td {
+            padding: 25px;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .start {
+            background-color: white;
+        }
+
+        .start:hover {
+            background-color: dodgerblue;
+            color: black;
+        }
+
+        .finish {
+            background-color: white;
+        }
+
+        .finish:hover {
+            background-color: gold;
+        }
+
+        .wall {
+            background-color: grey;
+        }
+
+        .path {
+            background-color: white;
+        }
+
+        .path:hover {
+            background-color: lightgreen;
+        }
+
+        .wall:hover {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+
+<table border="1" cellspacing="0">
+    <tr>
+        <td colspan="6" class="finish">FINISH</td>
+    </tr>
+    <tr>
+        <td class="path"></td>
+        <td class="wall"></td>
+        <td class="wall"></td>
+        <td class="wall"></td>
+        <td class="wall"></td>
+        <td class="wall"></td>
+    </tr>
+    <tr>
+        <td class="path"></td>
+        <td class="wall"></td>
+        <td class="wall"></td>
+        <td class="wall"></td>
+        <td class="wall"></td>
+        <td class="wall"></td>
+    </tr>
+    <tr>
+        <td class="path"></td>
+        <td class="path"></td>
+        <td class="path"></td>
+        <td class="wall"></td>
+        <td class="wall"></td>
+        <td class="wall"></td>
+    </tr>
+    <tr>
+        <td class="wall"></td>
+        <td class="wall"></td>
+        <td class="path"></td>
+        <td class="wall"></td>
+        <td class="wall"></td>
+        <td class="wall"></td>
+    </tr>
+    <tr>
+        <td class="wall"></td>
+        <td class="wall"></td>
+        <td class="path"></td>
+        <td class="path"></td>
+        <td class="path"></td>
+        <td class="path"></td>
+    </tr>
+    <tr>
+        <td colspan="6" class="start">START</td>
+    </tr>
+</table>
+
+<script>
+    let isOnPath = false;
+    let gameOver = false;
+
+    $(".path").hover(function () {
+        if (!gameOver) isOnPath = true;
+    });
+
+    $(".wall").hover(function () {
+        if (!gameOver) {
+            alert("you lose!");
+            gameOver = true;
+        }
+    });
+
+    $(".finish").hover(function () {
+        if (isOnPath && !gameOver) {
+            alert("congrats!");
+            gameOver = true;
+        }
+    });
+</script>
+
+</body>
+</html>
