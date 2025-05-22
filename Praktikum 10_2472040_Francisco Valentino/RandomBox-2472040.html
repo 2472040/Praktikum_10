@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>RandomBox=2472040</title>
+  <script src="jquery.min.js"></script>
+  <style>
+    #container {
+      position: relative;
+      width: 800px;
+      height: 600px;
+      border: 2px solid #ccc;
+      overflow: hidden;
+    }
+
+    #box {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+
+<div id="container">
+  <div id="box"></div>
+</div>
+<script>
+
+  function moveBox() {
+    maxX = 700;
+    maxY = 500;
+    X = Math.floor(Math.random() * maxX);
+    Y = Math.floor(Math.random() * maxY);
+
+    $('#box').fadeOut(500, function() {
+      $(this).css({ left: X + 'px', top: Y + 'px'}).fadeIn(500);
+    });
+    setTimeout(moveBox, 2000);
+  }
+  
+  $(document).ready(function() {
+    moveBox();
+  });
+
+</script>
+</body>
+</html>
